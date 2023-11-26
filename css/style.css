@@ -225,6 +225,10 @@ body{
     display: none;
 }
 
+.error{
+    box-shadow: 0 0 10px red;
+}
+
 @media (max-width: 1200px){
     .headline-img{
         max-width: 100%;
