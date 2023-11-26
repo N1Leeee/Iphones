@@ -44,35 +44,28 @@ inputTelephone = document.querySelector('.js-input-tel');
 form.onsubmit = function(){
     let nameVal = inputName.value,
     telephoneVal = inputTelephone.value;
+    let isValid = true;
 
-    if (nameVal === ''){
-        inputName.classList.add('error');
-    }
-    else {
-        inputName.classList.remove('error');
-    }
-    if (telephoneVal === ''){
-        inputTelephone.classList.add('error');
-    }
-    else {
-        inputTelephone.classList.remove('error');
-    }
-
-    if(validateName(nameVal)){
+    if(validateName(nameVal) || !nameVal === ''){
         inputName.classList.remove('error');
     }
     else{
         inputName.classList.add('error');
-        return false;
+        isValid = false;;
     }
 
-    if(validateTelephone(telephoneVal)){
+    if(validateTelephone(telephoneVal) || !telephoneVal === ''){
         inputTelephone.classList.remove('error');
     }
     else{
         inputTelephone.classList.add('error');
-        return false;
+        isValid = false;
     }
 
-    alert('Ваша заявка принята! Менеджер скоро с Вами свяжется.');
+    if(isValid){
+        alert('Ваша заявка принята! Менеджер скоро с Вами свяжется.');
+    }
+    else{
+        return false;
+    }
 }
